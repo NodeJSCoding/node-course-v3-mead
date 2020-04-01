@@ -6,9 +6,9 @@ const getNotes = () => 'Your notes'
 
 const addNote = function(title, body) {
     const notes = loadNotes()
-    const duplicateNotes = notes.filter((note) => note.title === title)
+    const duplicateNote = notes.find((note) => note.title === title)
 
-    if (duplicateNotes.length === 0) {
+    if (!duplicateNote) {
         notes.push({
             title: title,
             body: body
@@ -39,7 +39,9 @@ const removeNote = (title) => {
 const listNotes = () => {
     const notes = loadNotes()
     console.log(chalk.inverse('Your notes'))
-
+    
+    debugger
+    
     notes.forEach((note) => {
         console.log(note.title)
     })
